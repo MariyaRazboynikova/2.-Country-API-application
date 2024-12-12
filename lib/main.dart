@@ -1,7 +1,19 @@
+import 'package:country_api_application/core/themes/theme_provider.dart';
+import 'package:country_api_application/features/presentation/pages/country_detailes.dart';
+import 'package:country_api_application/features/presentation/pages/county_page.dart';
+import 'package:country_api_application/features/presentation/pages/intro_page.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MainApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => ThemesProvider()),
+      ],
+      child: const MainApp(),
+    ),
+  );
 }
 
 class MainApp extends StatelessWidget {
@@ -9,9 +21,16 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(body: Center(child: Text('Hello World!!!!!!!!!!'))),
+      theme: Provider.of<ThemesProvider>(context).themeData,
+      title: 'Country API application',
+      home: const IntroPage(),
+      routes: {
+        '/intro_page': (context) => const IntroPage(),
+        '/country_page': (context) => const CountyPage(),
+        '/country_detailes': (context) => const CountryDetailes(),
+      },
     );
   }
 }
