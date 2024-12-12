@@ -1,12 +1,12 @@
-class CityModel {
+class CitiesModel {
   final bool error;
   final String msg;
   final List<String> data;
 
-  CityModel({required this.error, required this.msg, required this.data});
+  CitiesModel({required this.error, required this.msg, required this.data});
 
-  factory CityModel.fromJson(Map<String, dynamic> json) {
-    return CityModel(
+  factory CitiesModel.fromJson(Map<String, dynamic> json) {
+    return CitiesModel(
       error: json["error"],
       msg: json["msg"],
       data: List<String>.from(json["data"].map((x) => x)),

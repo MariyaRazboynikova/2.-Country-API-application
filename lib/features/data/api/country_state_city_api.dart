@@ -1,4 +1,9 @@
+import 'dart:convert';
+
+import 'package:country_api_application/features/data/models/city_model.dart';
+import 'package:country_api_application/features/data/models/country_state_model.dart';
 import 'package:dio/dio.dart';
+import 'package:http/http.dart' as http;
 
 class CountryStateCityApi {
   static const countriesStateURL =
@@ -8,5 +13,36 @@ class CountryStateCityApi {
 
   CountryStateCityApi(Dio dio);
 
-  Future<CountryStateCityApi>
+  Future<CountryStateModel> getCountriesStates() async {
+    try {
+      var url = Uri.parse(countriesStateURL);
+      var response = await http.get(url);
+
+      if (response.statusCode == 200) {
+        return CountryStateModel.fromJson(json.decode(response.body));
+      } else {
+        throw Exception('Failed to load countries');
+      }
+    } catch (e) {
+      throw Exception('Error fetching countries and states: $e');
+    }
+  }
+
+  Future<CitiesModel> getCities({
+    required String country,
+    required String state,
+  }) async {
+    try {
+      var url = Uri.parse("$cityURL=$country&state=$state");
+      var response = await http.get(url);
+
+      if (response.statusCode == 200) {
+        return CitiesModel.fromJson(json.decode(response.body));
+      } else {
+        throw Exception('Failed to load cities');
+      }
+    } catch (e) {
+      throw Exception('Error fetching cities: $e');
+    }
+  }
 }
