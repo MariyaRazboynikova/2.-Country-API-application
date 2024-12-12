@@ -9,10 +9,7 @@ class ButtonFotInitialPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
-      child: Container(
-        width: 300,
-        decoration: ,
-      ),
+      child: Container(width: 300, decoration: BoxDecoration()),
     );
   }
 }
