@@ -28,8 +28,13 @@ class MainApp extends StatelessWidget {
       home: const IntroPage(),
       routes: {
         '/intro_page': (context) => const IntroPage(),
-        '/country_page': (context) => const CountyPage(),
-        '/country_detailes': (context) => const CountryDetailes(),
+        '/country_page': (context) => CountyPage(),
+        '/country_detailes':
+            (context) => const CountryDetailes(
+              cityName: '',
+              stateName: '',
+              countryName: '',
+            ),
       },
     );
   }
