@@ -1,6 +1,6 @@
 import 'package:country_api_application/core/themes/theme_provider.dart';
-import 'package:country_api_application/features/presentation/pages/country_detailes.dart';
-import 'package:country_api_application/features/presentation/pages/county_page.dart';
+import 'package:country_api_application/features/presentation/pages/city_detail_page.dart%20.dart';
+import 'package:country_api_application/features/presentation/pages/home_pages.dart';
 import 'package:country_api_application/features/presentation/pages/intro_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -11,25 +11,25 @@ void main() {
       providers: [
         ChangeNotifierProvider(create: (context) => ThemesProvider()),
       ],
-      child: const MainApp(),
+      child: const MyApp(),
     ),
   );
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
       theme: Provider.of<ThemesProvider>(context).themeData,
-      title: 'Country API application',
+      debugShowCheckedModeBanner: false,
+      title: 'REST Countries BLoC App',
       home: const IntroPage(),
       routes: {
         '/intro_page': (context) => const IntroPage(),
-        '/country_page': (context) => CountyPage(),
-        '/country_detailes':
+        '/home_pages': (context) => HomePage(),
+        '/city_detail_page.dart':
             (context) => const CityDetailPage(
               cityName: '',
               stateName: '',

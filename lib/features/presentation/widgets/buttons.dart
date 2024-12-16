@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class ButtonFotInitialPage extends StatelessWidget {
+class ButtonForInitialPage extends StatelessWidget {
   final String text;
   final void Function()? onTap;
-  const ButtonFotInitialPage({super.key, required this.text, this.onTap});
+  const ButtonForInitialPage({super.key, required this.text, this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,7 @@ class ButtonFotInitialPage extends StatelessWidget {
       child: Container(
         width: 300,
         decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.secondary,
+          color: Theme.of(context).colorScheme.primary,
           borderRadius: BorderRadius.circular(20),
         ),
         child: Row(
@@ -23,16 +23,18 @@ class ButtonFotInitialPage extends StatelessWidget {
               child: Text(
                 text,
                 style: TextStyle(
-                  color: Theme.of(context).colorScheme.primary,
                   fontSize: 25,
                   fontWeight: FontWeight.bold,
+                  color: Theme.of(context).colorScheme.surface,
                 ),
               ),
             ),
             const SizedBox(width: 10),
+
+            //icon
             Icon(
-              Icons.arrow_forward_ios_rounded,
-              color: Theme.of(context).colorScheme.primary,
+              Icons.arrow_forward,
+              color: Theme.of(context).colorScheme.surface,
             ),
           ],
         ),

@@ -1,20 +1,20 @@
 import 'package:country_api_application/features/data/api/country_state_city_api.dart';
 import 'package:country_api_application/features/data/models/country_state_model.dart';
 import 'package:country_api_application/features/data/repository/country_state_city_repo.dart';
-import 'package:country_api_application/features/domain/entity/state_entity.dart';
-import 'package:country_api_application/features/presentation/bloc/country_bloc.dart';
-import 'package:country_api_application/features/presentation/pages/country_detailes.dart';
+import 'package:country_api_application/features/domain/entity/state.dart';
+import 'package:country_api_application/features/presentation/bloc/bloc_list/flutter_bloc.dart';
+import 'package:country_api_application/features/presentation/pages/city_detail_page.dart%20.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google_fonts/google_fonts.dart';
 
-class CountyPage extends StatelessWidget {
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+class HomePage extends StatelessWidget {
   String? selectedCountry;
   String? selectedState;
   String? selectedCity;
 
-  CountyPage({super.key});
+  HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -83,8 +83,8 @@ class CountyPage extends StatelessWidget {
         onPressed: () {
           context.read<CountryBloc>().add(LoadCountries());
         },
-        tooltip: 'Load Countries',
         child: const Icon(Icons.refresh),
+        tooltip: 'Load Countries',
       ),
     );
   }
@@ -169,8 +169,12 @@ class CountyPage extends StatelessWidget {
               builder:
                   (context) => CityDetailPage(
                     cityName: selectedValue,
-                    stateName: selectedState ?? 'Unknown State',
-                    countryName: selectedCountry ?? 'Unknown Country',
+                    stateName:
+                        selectedState ??
+                        'Unknown State', // Передаем выбранный штат
+                    countryName:
+                        selectedCountry ??
+                        'Unknown Country', // Передаем выбранную страну
                   ),
             ),
           );

@@ -1,9 +1,9 @@
 import 'dart:convert';
 
-import 'package:country_api_application/features/data/models/city_model.dart';
-import 'package:country_api_application/features/data/models/country_state_model.dart';
 import 'package:dio/dio.dart';
 import 'package:http/http.dart' as http;
+import '../models/cities_model.dart';
+import '../models/country_state_model.dart';
 
 class CountryStateCityApi {
   static const countriesStateURL =

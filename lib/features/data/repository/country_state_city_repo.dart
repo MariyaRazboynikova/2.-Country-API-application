@@ -1,6 +1,6 @@
-import 'package:country_api_application/features/data/api/country_state_city_api.dart';
-import 'package:country_api_application/features/data/models/city_model.dart';
-import 'package:country_api_application/features/data/models/country_state_model.dart';
+import '../api/country_state_city_api.dart';
+import '../models/cities_model.dart';
+import '../models/country_state_model.dart';
 
 class CountryStateCityRepo {
   final CountryStateCityApi api;

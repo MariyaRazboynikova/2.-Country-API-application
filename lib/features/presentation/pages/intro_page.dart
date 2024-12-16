@@ -1,5 +1,6 @@
-import 'package:country_api_application/features/presentation/widgets/button.dart';
+import 'package:country_api_application/features/presentation/widgets/buttons.dart';
 import 'package:flutter/material.dart';
+
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 
@@ -24,7 +25,7 @@ class IntroPage extends StatelessWidget {
           const SizedBox(height: 10),
           Lottie.asset('lib/core/assets/countries.json'),
           const SizedBox(height: 40),
-          ButtonFotInitialPage(
+          ButtonForInitialPage(
             text: 'Start',
             onTap: () => Navigator.pushNamed(context, '/home_pages'),
           ),
