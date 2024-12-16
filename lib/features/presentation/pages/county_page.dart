@@ -7,6 +7,7 @@ import 'package:country_api_application/features/presentation/pages/country_deta
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CountyPage extends StatelessWidget {
   String? selectedCountry;
@@ -82,8 +83,8 @@ class CountyPage extends StatelessWidget {
         onPressed: () {
           context.read<CountryBloc>().add(LoadCountries());
         },
-        child: const Icon(Icons.refresh),
         tooltip: 'Load Countries',
+        child: const Icon(Icons.refresh),
       ),
     );
   }
@@ -166,14 +167,10 @@ class CountyPage extends StatelessWidget {
             context,
             MaterialPageRoute(
               builder:
-                  (context) => CountryDetailes(
+                  (context) => CityDetailPage(
                     cityName: selectedValue,
-                    stateName:
-                        selectedState ??
-                        'Unknown State', // Передаем выбранный штат
-                    countryName:
-                        selectedCountry ??
-                        'Unknown Country', // Передаем выбранную страну
+                    stateName: selectedState ?? 'Unknown State',
+                    countryName: selectedCountry ?? 'Unknown Country',
                   ),
             ),
           );

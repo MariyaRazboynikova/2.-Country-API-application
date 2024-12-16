@@ -30,7 +30,7 @@ class MainApp extends StatelessWidget {
         '/intro_page': (context) => const IntroPage(),
         '/country_page': (context) => CountyPage(),
         '/country_detailes':
-            (context) => const CountryDetailes(
+            (context) => const CityDetailPage(
               cityName: '',
               stateName: '',
               countryName: '',
