@@ -1,8 +1,6 @@
 import 'package:country_api_application/features/presentation/widgets/buttons.dart';
 import 'package:flutter/material.dart';
-
 import 'package:google_fonts/google_fonts.dart';
-import 'package:lottie/lottie.dart';
 
 class IntroPage extends StatelessWidget {
   const IntroPage({super.key});
@@ -28,6 +26,10 @@ class IntroPage extends StatelessWidget {
           ),
           const SizedBox(height: 10),
           // Lottie.asset('lib/core/assets/countries.json'),
+          Icon(
+            Icons.travel_explore,
+            color: Theme.of(context).colorScheme.primary,
+          ),
           const SizedBox(height: 40),
           ButtonForInitialPage(
             text: 'Start',
