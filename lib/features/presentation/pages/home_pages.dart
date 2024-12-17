@@ -1,8 +1,10 @@
+import 'package:country_api_application/core/themes/theme.dart';
+import 'package:country_api_application/core/themes/theme_provider.dart';
 import 'package:country_api_application/features/data/api/country_state_city_api.dart';
 import 'package:country_api_application/features/data/models/country_state_model.dart';
 import 'package:country_api_application/features/data/repository/country_state_city_repo.dart';
 import 'package:country_api_application/features/domain/entity/state.dart';
-import 'package:country_api_application/features/presentation/bloc/bloc_list/flutter_bloc.dart';
+import 'package:country_api_application/features/presentation/bloc/bloc/country_bloc.dart';
 import 'package:country_api_application/features/presentation/pages/city_detail_page.dart%20.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -18,6 +20,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themesProvider = context.watch<ThemesProvider>();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.primary,
@@ -26,6 +29,27 @@ class HomePage extends StatelessWidget {
           style: TextStyle(color: Colors.white),
         ),
         centerTitle: true,
+        actions: [
+          Switch(
+            activeColor: Theme.of(context).colorScheme.primary,
+            inactiveThumbColor: Theme.of(context).colorScheme.primary,
+            inactiveTrackColor: Theme.of(context).colorScheme.secondary,
+            thumbIcon: WidgetStateProperty.resolveWith<Icon?>((
+              Set<WidgetState> states,
+            ) {
+              if (states.contains(WidgetState.selected)) {
+                return const Icon(
+                  Icons.sunny,
+                ); // Иконка при включенном состоянии
+              }
+              return const Icon(Icons.star); // Иконка при выключенном состоянии
+            }),
+            value: themesProvider.themeData == darkMode,
+            onChanged: (value) {
+              themesProvider.toggleTheme();
+            },
+          ),
+        ],
       ),
       body: BlocProvider(
         create:
@@ -79,13 +103,13 @@ class HomePage extends StatelessWidget {
           },
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          context.read<CountryBloc>().add(LoadCountries());
-        },
-        tooltip: 'Load Countries',
-        child: const Icon(Icons.refresh),
-      ),
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: () {
+      //     context.read<CountryBloc>().add(LoadCountries());
+      //   },
+      //   tooltip: 'Load Countries',
+      //   child: const Icon(Icons.refresh),
+      // ),
     );
   }
 
@@ -109,7 +133,7 @@ class HomePage extends StatelessWidget {
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 20,
-                ), // Жирный текст для элементов
+                ),
               ),
             );
           }).toList(),
@@ -133,7 +157,16 @@ class HomePage extends StatelessWidget {
       value: selectedState ?? 'Select State',
       items:
           stateNames.map((String state) {
-            return DropdownMenuItem<String>(value: state, child: Text(state));
+            return DropdownMenuItem<String>(
+              value: state,
+              child: Text(
+                state,
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                ),
+              ),
+            );
           }).toList(),
       onChanged: (selectedValue) {
         if (selectedValue != null && selectedValue != 'Select State') {
@@ -158,7 +191,16 @@ class HomePage extends StatelessWidget {
       value: selectedCity ?? 'Select City',
       items:
           cityNames.map((String city) {
-            return DropdownMenuItem<String>(value: city, child: Text(city));
+            return DropdownMenuItem<String>(
+              value: city,
+              child: Text(
+                city,
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                ),
+              ),
+            );
           }).toList(),
       onChanged: (selectedValue) {
         if (selectedValue != null && selectedValue != 'Select City') {
