@@ -16,7 +16,7 @@ class CityDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('City Details', style: TextStyle(color: Colors.white)),
+        title: const Text('City Details', style: TextStyle(color: Colors.white)),
         backgroundColor: Theme.of(context).colorScheme.primary,
       ),
       body: Container(
@@ -45,15 +45,15 @@ class CityDetailPage extends StatelessWidget {
                   children: [
                     Text(
                       'Country: $countryName',
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(height: 10),
-                    Text('State: $stateName', style: TextStyle(fontSize: 20)),
-                    SizedBox(height: 10),
-                    Text('City: $cityName', style: TextStyle(fontSize: 20)),
+                    const SizedBox(height: 10),
+                    Text('State: $stateName', style: const TextStyle(fontSize: 20)),
+                    const SizedBox(height: 10),
+                    Text('City: $cityName', style: const TextStyle(fontSize: 20)),
                   ],
                 ),
               ),

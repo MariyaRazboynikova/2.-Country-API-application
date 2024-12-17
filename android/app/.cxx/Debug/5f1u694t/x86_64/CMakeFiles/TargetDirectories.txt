@@ -1,0 +1,2 @@
+C:/flutter/1. Project/2. Country api application/country_api_application/android/app/.cxx/Debug/5f1u694t/x86_64/CMakeFiles/edit_cache.dir
+C:/flutter/1. Project/2. Country api application/country_api_application/android/app/.cxx/Debug/5f1u694t/x86_64/CMakeFiles/rebuild_cache.dir

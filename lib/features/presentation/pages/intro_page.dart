@@ -13,17 +13,21 @@ class IntroPage extends StatelessWidget {
       backgroundColor: Theme.of(context).colorScheme.surface,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+
         children: [
-          Text(
-            'REST Countries BLoC App',
-            style: GoogleFonts.kaiseiTokumin(
-              fontWeight: FontWeight.bold,
-              fontSize: 25,
-              color: Theme.of(context).colorScheme.primary,
+          Center(
+            child: Text(
+              'REST Countries BLoC App',
+              style: GoogleFonts.kaiseiTokumin(
+                fontWeight: FontWeight.bold,
+                fontSize: 25,
+                color: Theme.of(context).colorScheme.primary,
+              ),
             ),
           ),
           const SizedBox(height: 10),
-          Lottie.asset('lib/core/assets/countries.json'),
+          // Lottie.asset('lib/core/assets/countries.json'),
           const SizedBox(height: 40),
           ButtonForInitialPage(
             text: 'Start',

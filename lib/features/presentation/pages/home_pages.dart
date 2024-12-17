@@ -83,8 +83,8 @@ class HomePage extends StatelessWidget {
         onPressed: () {
           context.read<CountryBloc>().add(LoadCountries());
         },
-        child: const Icon(Icons.refresh),
         tooltip: 'Load Countries',
+        child: const Icon(Icons.refresh),
       ),
     );
   }
