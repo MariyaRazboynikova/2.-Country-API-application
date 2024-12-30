@@ -1,9 +1,4 @@
-import 'package:country_api_application/core/themes/theme_provider.dart';
-import 'package:country_api_application/features/presentation/pages/city_detail_page.dart%20.dart';
-import 'package:country_api_application/features/presentation/pages/country_page.dart';
-import 'package:country_api_application/features/presentation/pages/intro_page.dart';
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:country_api_application/export.dart';
 
 void main() {
   runApp(
