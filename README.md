@@ -13,7 +13,7 @@ The **Country State City** application is a Flutter-based mobile app that allows
 ### Architecture
 The application is structured using Clean Architecture principles and includes the following key components:
 
-- **Presentation Layer**: Contains UI components such as `HomePage`, `CityDetailPage`, and `IntroPage`.
+- **Presentation Layer**: Contains UI components such as `IntroPage`, `CountryPage`, and `CityDetailPage`.
 - **Domain Layer**: Defines entities such as `CountryEntity`, `StateEntity`, and `CityEntity`, along with the repository interface.
 - **Data Layer**: Implements data fetching using the `CountryStateCityApi` class, which interacts with the REST API.
 
