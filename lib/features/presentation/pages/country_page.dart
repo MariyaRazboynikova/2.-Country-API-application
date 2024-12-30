@@ -4,19 +4,18 @@ import 'package:country_api_application/features/data/api/country_state_city_api
 import 'package:country_api_application/features/data/models/country_state_model.dart';
 import 'package:country_api_application/features/data/repository/country_state_city_repo.dart';
 import 'package:country_api_application/features/domain/entity/state.dart';
-import 'package:country_api_application/features/presentation/bloc/bloc/country_bloc.dart';
+import 'package:country_api_application/features/presentation/bloc/country_bloc/country_bloc.dart';
 import 'package:country_api_application/features/presentation/pages/city_detail_page.dart%20.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class HomePage extends StatelessWidget {
+class CountryPage extends StatelessWidget {
   String? selectedCountry;
   String? selectedState;
   String? selectedCity;
 
-  HomePage({super.key});
+  CountryPage({super.key});
 
   @override
   Widget build(BuildContext context) {

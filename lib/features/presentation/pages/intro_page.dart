@@ -34,7 +34,7 @@ class IntroPage extends StatelessWidget {
 
           ButtonForInitialPage(
             text: 'Start',
-            onTap: () => Navigator.pushNamed(context, '/home_pages'),
+            onTap: () => Navigator.pushNamed(context, '/country_page'),
           ),
         ],
       ),
