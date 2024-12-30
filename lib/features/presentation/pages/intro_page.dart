@@ -10,6 +10,7 @@ class IntroPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surface,
       body: Column(
+        spacing: 40,
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
 
@@ -24,13 +25,13 @@ class IntroPage extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(height: 10),
-          // Lottie.asset('lib/core/assets/countries.json'),
+
           Icon(
             Icons.travel_explore,
+            size: 100,
             color: Theme.of(context).colorScheme.primary,
           ),
-          const SizedBox(height: 40),
+
           ButtonForInitialPage(
             text: 'Start',
             onTap: () => Navigator.pushNamed(context, '/home_pages'),

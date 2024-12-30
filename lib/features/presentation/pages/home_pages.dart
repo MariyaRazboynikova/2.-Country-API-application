@@ -24,22 +24,27 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.primary,
-        title: const Text(
+        title: Text(
           'Country State City',
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(
+            color: Theme.of(context).colorScheme.surface,
+            fontWeight: FontWeight.bold,
+          ),
         ),
         centerTitle: true,
         actions: [
           Switch(
-            activeColor: Theme.of(context).colorScheme.primary,
+            activeColor: Theme.of(context).colorScheme.surface,
             inactiveThumbColor: Theme.of(context).colorScheme.primary,
-            inactiveTrackColor: Theme.of(context).colorScheme.secondary,
+
+            inactiveTrackColor: Theme.of(context).colorScheme.surface,
             thumbIcon: WidgetStateProperty.resolveWith<Icon?>((
               Set<WidgetState> states,
             ) {
               if (states.contains(WidgetState.selected)) {
-                return const Icon(
+                return Icon(
                   Icons.sunny,
+                  color: Theme.of(context).colorScheme.primary,
                 ); // Иконка при включенном состоянии
               }
               return const Icon(Icons.star); // Иконка при выключенном состоянии
